@@ -1,0 +1,40 @@
+<form class="example-form" [formGroup]="regiForm">
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <input matInput placeholder="first Name" formControlName="FirstName" required>
+      <mat-error *ngIf="!regiForm.get('FirstName').valid && regiForm.get('FirstName').touched">PLease enter first name
+    </mat-error>
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width">
+      <input matInput placeholder="Last name" formControlName="LastName">
+      <mat-error *ngIf="!regiForm.get('LastName').valid && regiForm.get('LastName').touched">PLease enter Last name
+    </mat-error>
+    </mat-form-field></td>
+  </tr></table>
+
+  <p>
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Address 2"></textarea>
+    </mat-form-field>
+  </p>
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" formControlName="Email">
+       <mat-error *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">PLease enter your email</mat-error>
+    </mat-form-field>
+</td>
+    <td><mat-form-field class="example-full-width">
+      <input matInput placeholder="State">
+    </mat-form-field>
+</td>
+    <td><mat-form-field class="example-full-width">
+      <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
+      <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+    </mat-form-field></td>
+  </tr></table>
+  <button mat-raised-button color="accent" [disabled]="!regiForm.valid || IsAccepted==0">Submit</button>
+</form>
